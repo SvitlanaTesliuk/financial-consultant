@@ -1,0 +1,146 @@
+.hero {
+  padding: 100px 24px;
+  background-color: #f8fafc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+.content {
+  max-width: 600px;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+
+  color: #2563eb;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.title {
+  margin: 0;
+
+  color: #111827;
+  font-size: clamp(42px, 6vw, 72px);
+  line-height: 1.05;
+}
+
+.position {
+  margin: 16px 0 24px;
+
+  color: #374151;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.description {
+  max-width: 520px;
+  margin: 0;
+
+  color: #6b7280;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+  padding: 0 24px;
+
+  border-radius: 8px;
+
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.primaryButton {
+  color: #ffffff;
+  background-color: #2563eb;
+}
+
+.primaryButton:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  color: #2563eb;
+  background-color: #ffffff;
+  border: 1px solid #2563eb;
+}
+
+.secondaryButton:hover {
+  background-color: #eff6ff;
+  transform: translateY(-2px);
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  width: min(100%, 460px);
+  aspect-ratio: 4 / 5;
+
+  object-fit: cover;
+
+  border-radius: 24px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 48px 20px;
+  }
+
+  .container {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .content {
+    max-width: none;
+    text-align: center;
+  }
+
+  .description {
+    margin: 0 auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .imageWrapper {
+    order: -1;
+  }
+
+  .image {
+    width: min(100%, 320px);
+  }
+}
