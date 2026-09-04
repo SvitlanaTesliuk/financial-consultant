@@ -2,6 +2,8 @@ import Header from '../../components/Header/Header'
 import Hero from '../../components/Hero/Hero'
 import About from '../../components/About/About'
 import Services from '../../components/Services/Services'
+import Calculator from '../../components/Calculator/Calculator'
+import FAQ from '../../components/FAQ/FAQ'
 
 const Home = () => {
   return (
@@ -15,9 +17,9 @@ const Home = () => {
 
         <Services />
 
-        <section id="calculator">
-          <h2>Кредитний калькулятор</h2>
-        </section>
+        <Calculator />
+
+        <FAQ />
 
         <section id="contact">
           <h2>Контакти</h2>

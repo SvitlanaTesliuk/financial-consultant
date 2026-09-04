@@ -1,0 +1,190 @@
+.calculator {
+  padding: 100px 24px;
+  background-color: #ffffff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 700px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+
+  color: #2563eb;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.title {
+  margin: 0 0 20px;
+
+  color: #111827;
+
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+}
+
+.description {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.calculatorBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 40px;
+
+  max-width: 1000px;
+  margin: 0 auto;
+
+  padding: 40px;
+
+  background-color: #f8fafc;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.field {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field label {
+  color: #374151;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.field input {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 14px 50px 14px 16px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+
+  background-color: #ffffff;
+
+  color: #111827;
+
+  font-size: 16px;
+}
+
+.field input:focus {
+  outline: 2px solid #bfdbfe;
+  border-color: #2563eb;
+}
+
+.field > span {
+  position: absolute;
+
+  right: 16px;
+  bottom: 14px;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.result {
+  padding: 32px;
+
+  background-color: #ffffff;
+
+  border-radius: 20px;
+}
+
+.resultLabel {
+  margin: 0 0 12px;
+
+  color: #6b7280;
+
+  font-size: 15px;
+}
+
+.payment {
+  margin-bottom: 32px;
+
+  color: #111827;
+
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+
+  padding-top: 24px;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+.details div {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.details span {
+  color: #6b7280;
+}
+
+.details strong {
+  color: #111827;
+}
+
+.note {
+  margin: 28px 0 0;
+
+  color: #9ca3af;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .calculator {
+    padding: 72px 20px;
+  }
+
+  .calculatorBox {
+    grid-template-columns: 1fr;
+
+    padding: 24px;
+  }
+
+  .result {
+    padding: 24px;
+  }
+}
