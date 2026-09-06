@@ -1,0 +1,213 @@
+.contact {
+  padding: 100px 24px;
+
+  background-color: #111827;
+}
+
+.container {
+  max-width: 1100px;
+
+  margin: 0 auto;
+}
+
+.header {
+  max-width: 700px;
+
+  margin: 0 auto 56px;
+
+  text-align: center;
+}
+
+.subtitle {
+  margin: 0 0 16px;
+
+  color: #60a5fa;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+}
+
+.title {
+  margin: 0 0 20px;
+
+  color: #ffffff;
+
+  font-size: clamp(32px, 4vw, 48px);
+
+  line-height: 1.15;
+}
+
+.description {
+  margin: 0;
+
+  color: #d1d5db;
+
+  font-size: 17px;
+
+  line-height: 1.7;
+}
+
+.content {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 64px;
+
+  padding: 40px;
+
+  background-color: #ffffff;
+
+  border-radius: 24px;
+}
+
+.info h3 {
+  margin: 0 0 16px;
+
+  color: #111827;
+
+  font-size: 28px;
+}
+
+.info p {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+}
+
+.contacts {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+
+  margin-top: 32px;
+}
+
+.contactItem {
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  color: #111827;
+
+  text-decoration: none;
+}
+
+.contactItem:hover strong {
+  color: #2563eb;
+}
+
+.icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  background-color: #eff6ff;
+
+  border-radius: 12px;
+
+  font-size: 22px;
+}
+
+.contactItem span:last-child {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.contactItem small {
+  color: #6b7280;
+
+  font-size: 13px;
+}
+
+.contactItem strong {
+  color: #111827;
+
+  font-size: 16px;
+}
+
+.actions {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 16px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: block;
+
+  padding: 16px 24px;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  text-align: center;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.primaryButton {
+  background-color: #2563eb;
+
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background-color: #1d4ed8;
+
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  background-color: #eff6ff;
+
+  color: #2563eb;
+}
+
+.secondaryButton:hover {
+  background-color: #dbeafe;
+
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 72px 20px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding: 28px;
+  }
+}

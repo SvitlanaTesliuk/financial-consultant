@@ -3,7 +3,8 @@ import Hero from '../../components/Hero/Hero'
 import About from '../../components/About/About'
 import Services from '../../components/Services/Services'
 import Calculator from '../../components/Calculator/Calculator'
-import FAQ from '../../components/FAQ/FAQ'
+import Faq from '../../components/FAQ/FAQ'
+import Contact from '../../components/Contact/Contact'
 
 const Home = () => {
   return (
@@ -19,11 +20,9 @@ const Home = () => {
 
         <Calculator />
 
-        <FAQ />
+        <Faq />
 
-        <section id="contact">
-          <h2>Контакти</h2>
-        </section>
+        <Contact />
       </main>
     </>
   )
