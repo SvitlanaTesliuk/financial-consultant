@@ -5,6 +5,7 @@ import Services from '../../components/Services/Services'
 import Calculator from '../../components/Calculator/Calculator'
 import Faq from '../../components/FAQ/FAQ'
 import Contact from '../../components/Contact/Contact'
+import Footer from '../../components/Footer/Footer'
 
 const Home = () => {
   return (
@@ -23,6 +24,8 @@ const Home = () => {
         <Faq />
 
         <Contact />
+
+        <Footer />
       </main>
     </>
   )

@@ -26,7 +26,7 @@ const Hero = () => {
               Безкоштовна консультація
             </a>
 
-            <a href="tel:+420XXXXXXXXX" className={styles.secondaryButton}>
+            <a href="tel:+420723973911" className={styles.secondaryButton}>
               Зателефонувати
             </a>
           </div>

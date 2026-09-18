@@ -5,7 +5,7 @@ import styles from './Calculator.module.css'
 const Calculator = () => {
   const [propertyPrice, setPropertyPrice] = useState<number>(5000000)
   const [downPaymentPercent, setDownPaymentPercent] =
-    useState<number>(10)
+    useState<number>(20)
   const [years, setYears] = useState<number>(30)
 
   const interestRate = 5.5

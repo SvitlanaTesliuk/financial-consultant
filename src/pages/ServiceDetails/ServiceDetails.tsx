@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 
 import { services } from '../../data/services'
+import BackToHome from '../../components/BackToHome/BackToHome'
 
 import styles from './ServiceDetails.module.css'
 
@@ -30,9 +31,7 @@ const ServiceDetails = () => {
   return (
     <main className={styles.page}>
       <div className={styles.container}>
-        <Link to="/" className={styles.backLink}>
-          ← На головну
-        </Link>
+        <BackToHome />
 
         <p className={styles.subtitle}>
           ПОСЛУГА
