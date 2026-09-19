@@ -182,19 +182,8 @@
   }
 
   .imageWrapper {
-    /* order: -1; */
-   max-width: 400px;
+    max-width: 400px;
     margin: 0 auto;
   }
 
-  /* .imageWrapper::before {
-  top: 12px;
-
-  transform: translateX(calc(-50% + 12px));
-  
-} */
-
-  /* .image {
-    width: min(100%, 380px);
-  } */
 }

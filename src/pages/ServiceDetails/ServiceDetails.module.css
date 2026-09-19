@@ -128,7 +128,7 @@
 .shortDescription {
   max-width: 720px;
   text-align: center;
-  margin: 0 0 24px;
+  margin: 0 auto 24px;
 
   color: #b8bcb5;
 
@@ -208,7 +208,7 @@
   line-height: 1.2;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .page {
     padding: 90px 20px;
   }

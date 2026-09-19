@@ -126,7 +126,7 @@
   color: var(--gold);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .container {
     padding: 0 20px;
   }
@@ -141,7 +141,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .footer {
     padding: 56px 20px 20px;
   }

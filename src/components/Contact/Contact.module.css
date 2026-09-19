@@ -176,11 +176,10 @@
   text-decoration: none;
 
   transition:
-    transform 0.2s ease,
-    background-color 0.2s ease;
-    
-     background-color: var(--green-light);
+  transform 0.2s ease,
+  background-color 0.2s ease;
 
+  background-color: var(--green-light);
   color: var(--green-dark);
 
   border: 1px solid transparent;

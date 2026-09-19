@@ -131,7 +131,7 @@
   border-color: var(--gold);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .faq {
     padding: 72px 20px;
   }
