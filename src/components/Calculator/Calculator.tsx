@@ -6,7 +6,7 @@ const Calculator = () => {
   const [propertyPrice, setPropertyPrice] = useState<number>(5000000)
   const [downPaymentPercent, setDownPaymentPercent] =
     useState<number>(20)
-  const [years, setYears] = useState<number>(30)
+  const [years, setYears] = useState<string>('30')
 
   const interestRate = 5.5
 
@@ -20,13 +20,15 @@ const Calculator = () => {
     interestRate / 100 / 12
 
   const numberOfPayments =
-    years * 12
+    Number(years) * 12
 
   const monthlyPayment =
-    loanAmount *
-    (monthlyRate *
-      Math.pow(1 + monthlyRate, numberOfPayments)) /
-    (Math.pow(1 + monthlyRate, numberOfPayments) - 1)
+    Number(years) > 0
+      ? loanAmount *
+        (monthlyRate *
+          Math.pow(1 + monthlyRate, numberOfPayments)) /
+        (Math.pow(1 + monthlyRate, numberOfPayments) - 1)
+      : 0
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('cs-CZ', {
@@ -113,17 +115,24 @@ const Calculator = () => {
               <input
                 id="years"
                 type="number"
-                min="1"
+                min="0"
                 max="30"
                 value={years}
-                onChange={(event) =>
-                  setYears(
-                    Math.max(
-                      1,
-                      Math.min(30, Number(event.target.value)),
-                    ),
-                  )
-                }
+                onChange={(event) => {
+                  const value = event.target.value
+
+                  if (value === '') {
+                    setYears('0')
+                    return
+                  }
+
+                  const cleanValue = value.replace(/^0+(?=\d)/, '')
+                  const numberValue = Number(cleanValue)
+
+                  if (numberValue <= 30) {
+                    setYears(value)
+                  }
+                }}
               />
 
               <span>років</span>

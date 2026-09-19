@@ -1,4 +1,5 @@
 import styles from './Hero.module.css'
+import image from '../../assets/images/IMG_STHero.webp'
 
 const Hero = () => {
   return (
@@ -18,7 +19,7 @@ const Hero = () => {
           </p>
 
           <p className={styles.description}>
-           Підберу найкращий варіант саме для тебе
+           Комплексне фінансове консультування та супровід
           </p>
 
           <div className={styles.actions}>
@@ -34,7 +35,7 @@ const Hero = () => {
 
         <div className={styles.imageWrapper}>
           <img
-            src="/images/profile/svitlana.jpg"
+            src={image}
             alt="Світлана Теслюк — фінансовий консультант"
             className={styles.image}
           />

@@ -1,6 +1,7 @@
 .about {
   padding: 100px 24px;
-  background-color: #ffffff;
+
+  background-color: var(--white);
 }
 
 .container {
@@ -11,24 +12,51 @@
   grid-template-columns: 1fr 1fr;
 
   align-items: center;
-  gap: 80px;
+
+  gap: 70px;
 }
 
 .imageWrapper {
   width: 100%;
   max-width: 480px;
+  position: relative;
   margin: 0 auto;
+  z-index: 0;
+}
+.imageWrapper::before {
+  content: '';
+
+  position: absolute;
+
+  width: min(100%, 500px);
+  aspect-ratio: 4 / 5;
+
+  top: 20px;
+  left: 50%;
+
+  transform: translateX(calc(-50% + 20px));
+
+  background-color: var(--gold-light);
+
+  border-radius: 24px;
+
+  z-index: -1;
 }
 
 .image {
   display: block;
 
   width: 100%;
+
   aspect-ratio: 4 / 5;
 
   object-fit: cover;
 
-  border-radius: 24px;
+  border-radius: 20px;
+
+  box-shadow: var(--shadow);
+
+  z-index: 1;
 }
 
 .content {
@@ -38,49 +66,59 @@
 .subtitle {
   margin: 0 0 16px;
 
-  color: #2563eb;
+  color: var(--gold);
 
   font-size: 14px;
   font-weight: 700;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 .title {
   margin: 0 0 24px;
 
-  color: #111827;
+  color: var(--black);
 
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.15;
+  font-size: clamp(34px, 4vw, 48px);
+
+  line-height: 1.12;
+  text-align: center;
 }
 
 .text {
   margin: 0 0 16px;
 
-  color: #6b7280;
+  color: var(--text-light);
 
   font-size: 17px;
-  line-height: 1.7;
+
+  line-height: 1.75;
+  text-align: center;
 }
 
 .features {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
 
-  gap: 16px;
+  gap: 18px;
 
-  margin-top: 32px;
+  margin-top: 34px;
 }
 
 .feature {
   display: flex;
-  align-items: flex-start;
-  gap: 10px;
 
-  color: #374151;
+  align-items: flex-start;
+
+  gap: 12px;
+
+  color: var(--text);
 
   font-size: 15px;
+
   line-height: 1.5;
 }
 
@@ -88,18 +126,22 @@
   flex-shrink: 0;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 
   border-radius: 50%;
 
-  background-color: #eff6ff;
-  color: #2563eb;
+  background-color: var(--green-light);
+
+  color: var(--green-dark);
 
   font-weight: 700;
+
+  border: 1px solid rgba(198, 161, 91, 0.4);
 }
 
 @media (max-width: 768px) {
@@ -109,6 +151,7 @@
 
   .container {
     grid-template-columns: 1fr;
+
     gap: 48px;
   }
 
@@ -118,7 +161,9 @@
 
   .content {
     max-width: none;
+    
   }
+  
 
   .title {
     font-size: 36px;

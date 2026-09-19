@@ -16,7 +16,7 @@ const Header = () => {
         </nav>
 
         <a
-          href="tel:+420XXXXXXXXX"
+          href="tel:+420723973911"
           className={styles.phone}
         >
           Зателефонувати

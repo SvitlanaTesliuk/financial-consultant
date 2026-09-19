@@ -1,6 +1,7 @@
 .calculator {
   padding: 100px 24px;
-  background-color: #ffffff;
+
+  background-color: var(--cream);
 }
 
 .container {
@@ -10,59 +11,71 @@
 
 .header {
   max-width: 700px;
+
   margin: 0 auto 56px;
+
   text-align: center;
 }
 
 .subtitle {
   margin: 0 0 16px;
 
-  color: #2563eb;
+  color: var(--gold);
 
   font-size: 14px;
   font-weight: 700;
 
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .title {
   margin: 0 0 20px;
 
-  color: #111827;
+  color: var(--black);
 
-  font-size: clamp(32px, 4vw, 48px);
+  font-size: clamp(34px, 4vw, 48px);
+
   line-height: 1.15;
 }
 
 .description {
   margin: 0;
 
-  color: #6b7280;
+  color: var(--text-light);
 
   font-size: 17px;
+
   line-height: 1.7;
 }
 
 .calculatorBox {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
 
   gap: 40px;
 
   max-width: 1000px;
+
   margin: 0 auto;
 
   padding: 40px;
 
-  background-color: #f8fafc;
+  background-color: var(--white);
 
-  border: 1px solid #e5e7eb;
-  border-radius: 24px;
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  box-shadow: var(--shadow);
 }
 
 .form {
   display: flex;
+
   flex-direction: column;
+
   gap: 24px;
 }
 
@@ -70,14 +83,17 @@
   position: relative;
 
   display: flex;
+
   flex-direction: column;
+
   gap: 8px;
 }
 
 .field label {
-  color: #374151;
+  color: var(--text);
 
   font-size: 15px;
+
   font-weight: 600;
 }
 
@@ -88,19 +104,23 @@
 
   padding: 14px 50px 14px 16px;
 
-  border: 1px solid #d1d5db;
-  border-radius: 10px;
+  border: 1px solid var(--border);
 
-  background-color: #ffffff;
+  border-radius: 9px;
 
-  color: #111827;
+  background-color: var(--white);
+
+  color: var(--black);
 
   font-size: 16px;
+
+  transition: border-color 0.2s ease;
 }
 
 .field input:focus {
-  outline: 2px solid #bfdbfe;
-  border-color: #2563eb;
+  outline: none;
+
+  border-color: var(--green);
 }
 
 .field > span {
@@ -109,7 +129,7 @@
   right: 16px;
   bottom: 14px;
 
-  color: #6b7280;
+  color: var(--text-light);
 
   font-size: 14px;
 }
@@ -117,15 +137,17 @@
 .result {
   padding: 32px;
 
-  background-color: #ffffff;
+  background-color: var(--green-dark);
 
-  border-radius: 20px;
+  border-radius: 16px;
+
+  color: var(--white);
 }
 
 .resultLabel {
   margin: 0 0 12px;
 
-  color: #6b7280;
+  color: #c8cec9;
 
   font-size: 15px;
 }
@@ -133,43 +155,48 @@
 .payment {
   margin-bottom: 32px;
 
-  color: #111827;
+  color: var(--gold);
 
   font-size: clamp(32px, 5vw, 48px);
+
   font-weight: 700;
 }
 
 .details {
   display: flex;
+
   flex-direction: column;
 
   gap: 16px;
 
   padding-top: 24px;
 
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .details div {
   display: flex;
+
   justify-content: space-between;
+
   gap: 20px;
 }
 
 .details span {
-  color: #6b7280;
+  color: #bfc7c1;
 }
 
 .details strong {
-  color: #111827;
+  color: var(--white);
 }
 
 .note {
   margin: 28px 0 0;
 
-  color: #9ca3af;
+  color: #9da69f;
 
   font-size: 13px;
+
   line-height: 1.6;
 }
 

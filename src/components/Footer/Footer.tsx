@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import styles from './Footer.module.css'
 
@@ -17,37 +17,34 @@ const Footer = () => {
             </Link>
 
             <p>
-              Фінансовий консультант для українців у Чехії.
+              Фінансовий консультант для вас та вашої родини.
             </p>
 
             <p>
-              Допомагаю розібратися зі страхуванням,
-              кредитами, іпотекою та інвестиціями.
-            </p>
+              Підбір та офрмлення страхування, кредитів та інвестицій.
+              Працюю під ČNB.</p>
           </div>
 
           <div className={styles.navigation}>
             <h3>Навігація</h3>
 
-            <a href="/#about">
+            <Link to="/#about">
               Про мене
-            </a>
+            </Link>
 
-            <a href="/#services">
-              Послуги
-            </a>
+            <Link to="/#services">Послуги</Link>
 
-            <a href="/#calculator">
+            <Link to="/#calculator">
               Калькулятор
-            </a>
+            </Link>
 
-            <a href="/#faq">
+            <Link to="/#faq">
               FAQ
-            </a>
+            </Link>
 
-            <a href="/#contact">
+            <Link to="/#contact">
               Контакти
-            </a>
+            </Link>
           </div>
 
           <div className={styles.services}>
@@ -101,7 +98,9 @@ const Footer = () => {
             © {currentYear} Svitlana Tesliuk. Всі права захищені.
           </p>
 
-          <Link to="/" className={styles.homeButton}>
+          <Link to="/" 
+          className={styles.homeButton}
+          onClick={() => window.scrollTo(0, 0)}>
             ↑ На головну
           </Link>
         </div>

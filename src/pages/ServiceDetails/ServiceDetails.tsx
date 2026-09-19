@@ -46,7 +46,7 @@ const ServiceDetails = () => {
         </p>
 
         <div className={styles.benefits}>
-          <h2>Що ви отримаєте</h2>
+          <h2>Що ви отримаєте?</h2>
 
           <ul>
             {currentService.benefits.map((benefit) => (

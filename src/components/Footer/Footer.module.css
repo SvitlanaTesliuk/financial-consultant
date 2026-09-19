@@ -1,9 +1,9 @@
 .footer {
-  padding: 64px 24px 24px;
+  padding: 24px;
 
-  background-color: #111827;
+  background-color: var(--black-soft);
 
-  color: #ffffff;
+  color: var(--white);
 }
 
 .container {
@@ -19,9 +19,9 @@
 
   gap: 48px;
 
-  padding-bottom: 48px;
+  padding: 24px;
 
-  border-bottom: 1px solid #374151;
+  border-bottom: 1px solid rgba(198, 161, 91, 0.2);
 }
 
 .about {
@@ -33,9 +33,10 @@
 
   margin-bottom: 20px;
 
-  color: #ffffff;
+  color: var(--white);
 
   font-size: 22px;
+
   font-weight: 700;
 
   text-decoration: none;
@@ -44,7 +45,7 @@
 .about p {
   margin: 0 0 12px;
 
-  color: #9ca3af;
+  color: #9da39d;
 
   font-size: 14px;
 
@@ -66,7 +67,7 @@
 .contact h3 {
   margin: 0 0 8px;
 
-  color: #ffffff;
+  color: var(--gold);
 
   font-size: 16px;
 }
@@ -74,7 +75,7 @@
 .navigation a,
 .services a,
 .contact a {
-  color: #9ca3af;
+  color: #9da39d;
 
   font-size: 14px;
 
@@ -88,7 +89,7 @@
 .navigation a:hover,
 .services a:hover,
 .contact a:hover {
-  color: #ffffff;
+  color: var(--gold);
 }
 
 .bottom {
@@ -106,13 +107,13 @@
 .bottom p {
   margin: 0;
 
-  color: #6b7280;
+  color: #707670;
 
   font-size: 13px;
 }
 
 .homeButton {
-  color: #9ca3af;
+  color: #9da39d;
 
   font-size: 14px;
 
@@ -122,12 +123,17 @@
 }
 
 .homeButton:hover {
-  color: #ffffff;
+  color: var(--gold);
 }
 
 @media (max-width: 900px) {
+  .container {
+    padding: 0 20px;
+  }
   .main {
     grid-template-columns: 1fr 1fr;
+
+    gap: 36px;
   }
 
   .about {
