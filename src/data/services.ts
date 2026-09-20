@@ -1,5 +1,13 @@
+export type ServiceSlug =
+  | 'life-insurance'
+  | 'car-insurance'
+  | 'property-insurance'
+  | 'loans'
+  | 'mortgage'
+  | 'investments'
+
 export interface Service {
-  slug: string
+  slug: ServiceSlug
   title: string
   shortDescription: string
   description: string

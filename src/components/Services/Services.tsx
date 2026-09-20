@@ -1,106 +1,130 @@
 import { Link } from 'react-router-dom'
 import styles from './Services.module.css'
+import { useLanguage } from '../../context/useLanguage'
 
 const Services = () => {
+  const { translations } = useLanguage()
+
   return (
     <section id="services" className={styles.services}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <p className={styles.subtitle}>ПОСЛУГИ</p>
+          <p className={styles.subtitle}>
+            {translations.services.subtitle}
+          </p>
 
           <h2 className={styles.title}>
-            Фінансові рішення для вас
+            {translations.services.title}
           </h2>
 
           <p className={styles.description}>
-            Допомагаю розібратися у фінансових
-            питаннях та знайти оптимальне рішення.
+            {translations.services.description}
           </p>
         </div>
 
         <div className={styles.grid}>
 
-          <Link to="/services/life-insurance" className={styles.card}>
+          <Link
+            to="/services/life-insurance"
+            className={styles.card}
+          >
             <div className={styles.icon}>❤️</div>
 
-            <h3>Страхування життя</h3>
+            <h3>{translations.services.lifeInsurance.title}</h3>
 
             <p>
-              Захист вас та вашої родини у непередбачуваних ситуаціях.
+              {translations.services.lifeInsurance.description}
             </p>
 
             <span className={styles.link}>
-              Дізнатися більше →
+              {translations.services.learnMore}
             </span>
           </Link>
 
-          <Link to="/services/car-insurance" className={styles.card}>
+          <Link
+            to="/services/car-insurance"
+            className={styles.card}
+          >
             <div className={styles.icon}>🚗</div>
 
-            <h3>Страхування автомобіля</h3>
+            <h3>{translations.services.carInsurance.title}</h3>
 
             <p>
-              Обов'язкове страхування траспортного засобу.
+              {translations.services.carInsurance.description}
             </p>
 
             <span className={styles.link}>
-              Дізнатися більше →
+              {translations.services.learnMore}
             </span>
           </Link>
 
-          <Link to="/services/property-insurance" className={styles.card}>
+          <Link
+            to="/services/property-insurance"
+            className={styles.card}
+          >
             <div className={styles.icon}>🏠</div>
 
-            <h3>Страхування майна</h3>
+            <h3>
+              {translations.services.propertyInsurance.title}
+            </h3>
 
             <p>
-              Захист квартири, будинку та вашого майна.
+              {translations.services.propertyInsurance.description}
             </p>
 
             <span className={styles.link}>
-              Дізнатися більше →
+              {translations.services.learnMore}
             </span>
           </Link>
 
-          <Link to="/services/loans" className={styles.card}>
+          <Link
+            to="/services/loans"
+            className={styles.card}
+          >
             <div className={styles.icon}>💳</div>
 
-            <h3>Кредити</h3>
+            <h3>{translations.services.loans.title}</h3>
 
             <p>
-              Допомога у пошуку кредитного рішення та підготовці заявки.
+              {translations.services.loans.description}
             </p>
 
             <span className={styles.link}>
-              Дізнатися більше →
+              {translations.services.learnMore}
             </span>
           </Link>
 
-          <Link to="/services/mortgage" className={styles.card}>
+          <Link
+            to="/services/mortgage"
+            className={styles.card}
+          >
             <div className={styles.icon}>🏡</div>
 
-            <h3>Іпотека</h3>
+            <h3>{translations.services.mortgage.title}</h3>
 
             <p>
-              Допоможу розібратися з можливостями отримання іпотеки у Чехії та підготовкою документів.
+              {translations.services.mortgage.description}
             </p>
 
             <span className={styles.link}>
-              Дізнатися більше →
+              {translations.services.learnMore}
             </span>
           </Link>
 
-          <Link to="/services/investments" className={styles.card}>
+          <Link
+            to="/services/investments"
+            className={styles.card}
+          >
             <div className={styles.icon}>📈</div>
 
-            <h3>Інвестиції</h3>
+            <h3>{translations.services.investments.title}</h3>
 
             <p>
-              Допоможу підібрати найвигідніший та найнадійніший варіант інвестицій.
+              {translations.services.investments.description}
             </p>
 
             <span className={styles.link}>
-              Дізнатися більше →
+              {translations.services.learnMore}
             </span>
           </Link>
 

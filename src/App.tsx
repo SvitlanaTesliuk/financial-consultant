@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import { LanguageProvider } from './context/LanguageProvider'
 import Home from './pages/Home/Home'
 import ServiceDetails from './pages/ServiceDetails/ServiceDetails'
 
@@ -27,6 +28,7 @@ const ScrollToHash = () => {
 function App() {
   return (
     <BrowserRouter>
+    <LanguageProvider>
     <ScrollToHash />
       <Routes>
 
@@ -38,6 +40,7 @@ function App() {
         />
 
       </Routes>
+      </LanguageProvider>
     </BrowserRouter>
   )
 }

@@ -1,8 +1,11 @@
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import styles from './Footer.module.css'
+import { useLanguage } from '../../context/useLanguage'
 
 const Footer = () => {
+  const { translations } = useLanguage()
+
   const currentYear = new Date().getFullYear()
 
   return (
@@ -17,25 +20,27 @@ const Footer = () => {
             </Link>
 
             <p>
-              Фінансовий консультант для вас та вашої родини.
+              {translations.footer.description}
             </p>
 
             <p>
-              Підбір та офрмлення страхування, кредитів та інвестицій.
-              Працюю під ČNB.</p>
+              {translations.footer.servicesDescription}
+            </p>
           </div>
 
           <div className={styles.navigation}>
-            <h3>Навігація</h3>
+            <h3>{translations.footer.navigationTitle}</h3>
 
             <Link to="/#about">
-              Про мене
+              {translations.header.about}
             </Link>
 
-            <Link to="/#services">Послуги</Link>
+            <Link to="/#services">
+              {translations.header.services}
+            </Link>
 
             <Link to="/#calculator">
-              Калькулятор
+              {translations.header.calculator}
             </Link>
 
             <Link to="/#faq">
@@ -43,40 +48,40 @@ const Footer = () => {
             </Link>
 
             <Link to="/#contact">
-              Контакти
+              {translations.header.contact}
             </Link>
           </div>
 
           <div className={styles.services}>
-            <h3>Послуги</h3>
+            <h3>{translations.footer.servicesTitle}</h3>
 
             <Link to="/services/life-insurance">
-              Страхування життя
+              {translations.services.lifeInsurance.title}
             </Link>
 
             <Link to="/services/car-insurance">
-              Страхування автомобіля
+              {translations.services.carInsurance.title}
             </Link>
 
             <Link to="/services/property-insurance">
-              Страхування майна
+              {translations.services.propertyInsurance.title}
             </Link>
 
             <Link to="/services/loans">
-              Кредити
+              {translations.services.loans.title}
             </Link>
 
             <Link to="/services/mortgage">
-              Іпотека
+              {translations.services.mortgage.title}
             </Link>
 
             <Link to="/services/investments">
-              Інвестиції
+              {translations.services.investments.title}
             </Link>
           </div>
 
           <div className={styles.contact}>
-            <h3>Контакти</h3>
+            <h3>{translations.footer.contactTitle}</h3>
 
             <a href="tel:+420723973911">
               +420 723 973 911
@@ -87,7 +92,7 @@ const Footer = () => {
             </a>
 
             <a href="/#contact">
-              Безкоштовна консультація
+              {translations.footer.consultation}
             </a>
           </div>
 
@@ -95,13 +100,16 @@ const Footer = () => {
 
         <div className={styles.bottom}>
           <p>
-            © {currentYear} Svitlana Tesliuk. Всі права захищені.
+            © {currentYear} Svitlana Tesliuk.{' '}
+            {translations.footer.rights}
           </p>
 
-          <Link to="/" 
-          className={styles.homeButton}
-          onClick={() => window.scrollTo(0, 0)}>
-            ↑ На головну
+          <Link
+            to="/"
+            className={styles.homeButton}
+            onClick={() => window.scrollTo(0, 0)}
+          >
+            ↑ {translations.footer.home}
           </Link>
         </div>
 

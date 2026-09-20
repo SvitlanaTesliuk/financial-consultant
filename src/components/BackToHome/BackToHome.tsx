@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 
 import styles from './BackToHome.module.css'
+import { useLanguage } from '../../context/useLanguage'
 
 const BackToHome = () => {
+  const { translations } = useLanguage()
+
   return (
     <Link to="/" className={styles.button}>
-      ← На головну
+      ← {translations.footer.home}
     </Link>
   )
 }

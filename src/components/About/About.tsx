@@ -1,57 +1,57 @@
 import styles from './About.module.css'
 import image from '../../assets/images/IMG_STAbout.webp'
+import { useLanguage } from '../../context/useLanguage'
 
 const About = () => {
+  const { translations } = useLanguage()
+
   return (
     <section id="about" className={styles.about}>
       <div className={styles.container}>
         <div className={styles.imageWrapper}>
           <img
             src={image}
-            alt="Світлана Теслюк — фінансовий консультант"
+            alt={translations.about.imageAlt}
             className={styles.image}
           />
         </div>
 
         <div className={styles.content}>
-          <p className={styles.subtitle}>ПРО МЕНЕ</p>
+          <p className={styles.subtitle}>
+            {translations.about.subtitle}
+          </p>
 
           <h2 className={styles.title}>
-            Ваш надійний провідник у світ фінансів
+            {translations.about.title}
           </h2>
 
           <p className={styles.text}>
-            Мене звати Світлана Теслюк. Я допомагаю людям
-            розібратися у повсякденних фінансових питаннях та знайти рішення,
-            яке відповідає їхнім потребам і можливостям.
+            {translations.about.text1}
           </p>
 
           <p className={styles.text}>
-            Користуючись своїм багаторічним досвідом у банківській сфері, допомагаю
-            індивідуально підібрати фінансову чи страхову послугу, адже розумію,
-            наскільки складними та незрозумілими можуть здаватися
-            кредити, страхування та іпотека, особливо в іншій країні.
+            {translations.about.text2}
           </p>
 
           <div className={styles.features}>
             <div className={styles.feature}>
               <span className={styles.icon}>✓</span>
-              <span>Більше 10 років досвіду у банківській сфері</span>
+              <span>{translations.about.feature1}</span>
             </div>
 
             <div className={styles.feature}>
               <span className={styles.icon}>✓</span>
-              <span>Індивідуальний підхід</span>
+              <span>{translations.about.feature2}</span>
             </div>
 
             <div className={styles.feature}>
               <span className={styles.icon}>✓</span>
-              <span>Пояснюю складне простими словами</span>
+              <span>{translations.about.feature3}</span>
             </div>
 
             <div className={styles.feature}>
               <span className={styles.icon}>✓</span>
-              <span>Допомога українцям у Чехії безкоштовно</span>
+              <span>{translations.about.feature4}</span>
             </div>
           </div>
         </div>

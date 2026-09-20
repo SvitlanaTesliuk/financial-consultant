@@ -1,11 +1,17 @@
 import { useState } from 'react'
 
 import styles from './Calculator.module.css'
+import { useLanguage } from '../../context/useLanguage'
 
 const Calculator = () => {
-  const [propertyPrice, setPropertyPrice] = useState<number>(5000000)
+  const { translations } = useLanguage()
+
+  const [propertyPrice, setPropertyPrice] =
+    useState<number>(5000000)
+
   const [downPaymentPercent, setDownPaymentPercent] =
     useState<number>(20)
+
   const [years, setYears] = useState<string>('30')
 
   const interestRate = 5.5
@@ -47,16 +53,15 @@ const Calculator = () => {
 
         <div className={styles.header}>
           <p className={styles.subtitle}>
-            КРЕДИТНИЙ КАЛЬКУЛЯТОР
+            {translations.calculator.subtitle}
           </p>
 
           <h2 className={styles.title}>
-            Розрахуйте орієнтовний платіж за іпотекою
+            {translations.calculator.title}
           </h2>
 
           <p className={styles.description}>
-            Введіть параметри нерухомості та отримайте
-            приблизний розрахунок щомісячного платежу.
+            {translations.calculator.description}
           </p>
         </div>
 
@@ -66,7 +71,7 @@ const Calculator = () => {
 
             <div className={styles.field}>
               <label htmlFor="propertyPrice">
-                Вартість нерухомості
+                {translations.calculator.propertyPrice}
               </label>
 
               <input
@@ -76,16 +81,18 @@ const Calculator = () => {
                 step="100000"
                 value={propertyPrice}
                 onChange={(event) =>
-                  setPropertyPrice(Number(event.target.value))
+                  setPropertyPrice(
+                    Number(event.target.value),
+                  )
                 }
               />
 
-              <span>Кč</span>
+              <span>{translations.calculator.currency}</span>
             </div>
 
             <div className={styles.field}>
               <label htmlFor="downPayment">
-                Перший внесок
+                {translations.calculator.downPayment}
               </label>
 
               <input
@@ -98,7 +105,10 @@ const Calculator = () => {
                   setDownPaymentPercent(
                     Math.max(
                       20,
-                      Math.min(80, Number(event.target.value)),
+                      Math.min(
+                        80,
+                        Number(event.target.value),
+                      ),
                     ),
                   )
                 }
@@ -109,7 +119,7 @@ const Calculator = () => {
 
             <div className={styles.field}>
               <label htmlFor="years">
-                Термін іпотеки
+                {translations.calculator.term}
               </label>
 
               <input
@@ -126,8 +136,11 @@ const Calculator = () => {
                     return
                   }
 
-                  const cleanValue = value.replace(/^0+(?=\d)/, '')
-                  const numberValue = Number(cleanValue)
+                  const cleanValue =
+                    value.replace(/^0+(?=\d)/, '')
+
+                  const numberValue =
+                    Number(cleanValue)
 
                   if (numberValue <= 30) {
                     setYears(value)
@@ -135,7 +148,7 @@ const Calculator = () => {
                 }}
               />
 
-              <span>років</span>
+              <span>{translations.calculator.years}</span>
             </div>
 
           </div>
@@ -143,7 +156,7 @@ const Calculator = () => {
           <div className={styles.result}>
 
             <p className={styles.resultLabel}>
-              Орієнтовний щомісячний платіж
+              {translations.calculator.monthlyPayment}
             </p>
 
             <div className={styles.payment}>
@@ -153,28 +166,40 @@ const Calculator = () => {
             <div className={styles.details}>
 
               <div>
-                <span>Вартість нерухомості</span>
+                <span>
+                  {translations.calculator.propertyPrice}
+                </span>
+
                 <strong>
                   {formatCurrency(propertyPrice)}
                 </strong>
               </div>
 
               <div>
-                <span>Перший внесок</span>
+                <span>
+                  {translations.calculator.downPaymentLabel}
+                </span>
+
                 <strong>
                   {formatCurrency(downPayment)}
                 </strong>
               </div>
 
               <div>
-                <span>Сума іпотеки</span>
+                <span>
+                  {translations.calculator.loanAmount}
+                </span>
+
                 <strong>
                   {formatCurrency(loanAmount)}
                 </strong>
               </div>
 
               <div>
-                <span>Процентна ставка</span>
+                <span>
+                  {translations.calculator.interestRate}
+                </span>
+
                 <strong>
                   {interestRate} %
                 </strong>
@@ -183,10 +208,7 @@ const Calculator = () => {
             </div>
 
             <p className={styles.note}>
-              Розрахунок є орієнтовним. Фактична процентна
-              ставка, умови кредиту та щомісячний платіж
-              залежать від конкретного банку та вашої
-              фінансової ситуації.
+              {translations.calculator.note}
             </p>
 
           </div>
@@ -199,3 +221,6 @@ const Calculator = () => {
 }
 
 export default Calculator
+
+
+

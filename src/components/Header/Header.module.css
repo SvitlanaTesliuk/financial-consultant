@@ -125,3 +125,37 @@
     font-size: 18px;
   }
 }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.languageSwitcher {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.languageSwitcher button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+}
+
+.languageSwitcher button:hover {
+  color: var(--green);
+}
+
+.languageSwitcher .activeLanguage {
+  color: var(--green);
+}
+
+.languageSwitcher span {
+  color: var(--border);
+}

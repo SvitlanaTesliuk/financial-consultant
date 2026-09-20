@@ -1,46 +1,43 @@
 import { useState } from 'react'
 
 import styles from './FAQ.module.css'
+import { useLanguage } from '../../context/useLanguage'
 
 interface Question {
   question: string
   answer: string
 }
 
-const questions: Question[] = [
-  {
-    question: 'Чи можу я отримати іпотеку в Чехії як українець?',
-    answer:
-      'Так, звичайно. Можливість отримання іпотеки залежить від вашої ситуації, типу дозволу на перебування, доходу, трудового статусу та вимог конкретного банку. На безкоштовній консультації можемо оцінити вашу ситуацію та підібрати можливий варіант. Не вагайтеся - телефонуйте або пишіть, з радістю вам допоможу',
-  },
-  {
-    question: 'Скільки потрібно мати власних коштів для іпотеки?',
-    answer:
-      'Для нашого орієнтовного калькулятора ми використовуємо 20% власних коштів. Фактичні умови можуть залежати від віку, вашого статусу перебування в Чехії та вимог банку.',
-  },
-  {
-    question: 'Чи допомагаєте ви зі страхуванням автомобіля?',
-    answer:
-      'Так. Можемо розглянути варіанти страхування автомобіля від базового - обов’язкове страхування, до максимального пакету - включає повне покриття при ДТП як винуватця вчинення події так і постраждалого .',
-  },
-  {
-    question: 'Чи можна отримати консультацію онлайн?',
-    answer:
-      'Так. Консультацію можна провести онлайн, тому вам не обов’язково приїжджати особисто. Достатньо зателефонувати або написати',
-  },
-  {
-    question: 'Скільки коштує консультація?',
-    answer:
-      'Консультації та супровід я проводжу безкоштовно. Ви можете описати свою ситуацію та отримати інформацію про можливі варіанти.',
-  },
-  {
-    question: 'Які документи потрібні для консультації?',
-    answer:
-      'Залежно від питання можуть знадобитися документи про доходи, трудовий статус, проживання або вже наявні фінансові зобов’язання. Точний список визначимо після короткої розмови.',
-  },
-]
-
 const Faq = () => {
+  const { translations } = useLanguage()
+
+  const questions: Question[] = [
+    {
+      question: translations.faq.questions.q1.question,
+      answer: translations.faq.questions.q1.answer,
+    },
+    {
+      question: translations.faq.questions.q2.question,
+      answer: translations.faq.questions.q2.answer,
+    },
+    {
+      question: translations.faq.questions.q3.question,
+      answer: translations.faq.questions.q3.answer,
+    },
+    {
+      question: translations.faq.questions.q4.question,
+      answer: translations.faq.questions.q4.answer,
+    },
+    {
+      question: translations.faq.questions.q5.question,
+      answer: translations.faq.questions.q5.answer,
+    },
+    {
+      question: translations.faq.questions.q6.question,
+      answer: translations.faq.questions.q6.answer,
+    },
+  ]
+
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   const toggleQuestion = (index: number) => {
@@ -56,11 +53,11 @@ const Faq = () => {
           <p className={styles.subtitle}>FAQ</p>
 
           <h2 className={styles.title}>
-            Часті запитання
+            {translations.faq.title}
           </h2>
 
           <p className={styles.description}>
-           Тут ви знайдете відповіді на найпоширеніші питання.
+            {translations.faq.description}
           </p>
         </div>
 
