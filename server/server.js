@@ -10,7 +10,17 @@ app.disable('x-powered-by')
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ||'http://localhost:5173',
+    origin: (origin, callback) => {
+      if (
+        !origin ||
+        origin.startsWith('https://financial-consultant-') ||
+        origin === 'http://localhost:5173'
+      ) {
+        callback(null, true)
+      } else {
+        callback(new Error('Not allowed by CORS'))
+      }
+    },
   }),
 )
 
