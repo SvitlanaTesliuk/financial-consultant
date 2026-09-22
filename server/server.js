@@ -13,7 +13,7 @@ app.use(
     origin: (origin, callback) => {
       if (
         !origin ||
-        origin.startsWith('https://financial-consultant-jq63b4im3-svitlanas-projects-5093437e.vercel.app') ||
+        origin.startsWith('https://financial-consultant-') ||
         origin === 'http://localhost:5173'
       ) {
         callback(null, true)
