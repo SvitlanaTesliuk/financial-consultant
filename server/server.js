@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require('cors')
-const nodemailer = require('nodemailer')
+const { Resend } = require('resend')
 require('dotenv').config()
 
 const app = express()
@@ -13,7 +13,7 @@ app.use(
     origin: (origin, callback) => {
       if (
         !origin ||
-        origin.startsWith('https://financial-consultant-') ||
+        origin.startsWith('https://financial-consultant-jq63b4im3-svitlanas-projects-5093437e.vercel.app') ||
         origin === 'http://localhost:5173'
       ) {
         callback(null, true)
@@ -26,16 +26,7 @@ app.use(
 
 app.use(express.json())
 
-const transporter = nodemailer.createTransport({
-  
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-})
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 app.get('/', (req, res) => {
   res.json({
@@ -55,12 +46,12 @@ app.post('/api/contact', async (req, res) => {
   })
 
   try {
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_TO,
-      replyTo: email,
-      subject: 'Нова заявка на консультацію',
-      text: `
+    await resend.emails.send({
+  from: 'onboarding@resend.dev',
+  to: process.env.EMAIL_TO,
+  replyTo: email,
+  subject: 'Нова заявка на консультацію',
+  text: `
 Нова заявка на безкоштовну консультацію.
 
 Ім'я: ${name}
@@ -69,8 +60,8 @@ Email: ${email}
 
 Повідомлення:
 ${message}
-      `,
-    })
+  `,
+})
 
     res.json({
       success: true,
