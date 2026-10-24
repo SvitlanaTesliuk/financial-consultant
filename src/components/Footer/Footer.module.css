@@ -1,28 +1,42 @@
+
 .footer {
-  padding: 24px;
-
+  padding: 56px 24px 24px;
   background-color: var(--black-soft);
-
   color: var(--white);
+  font-family: inherit;
 }
 
 .container {
+  width: 100%;
   max-width: 1200px;
-
   margin: 0 auto;
+  box-sizing: border-box;
 }
+
+/* Основна частина футера */
 
 .main {
   display: grid;
+  grid-template-columns:
+    minmax(0, 2fr)
+    minmax(0, 1fr)
+    minmax(0, 1.5fr)
+    minmax(0, 1.5fr);
 
-  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  gap: 40px;
 
-  gap: 48px;
-
-  padding: 24px;
-
+  padding: 0 0 32px;
   border-bottom: 1px solid rgba(198, 161, 91, 0.2);
 }
+
+.about,
+.navigation,
+.services,
+.contact {
+  min-width: 0;
+}
+
+/* Інформація про консультанта */
 
 .about {
   max-width: 320px;
@@ -30,35 +44,41 @@
 
 .logo {
   display: inline-block;
-
+  max-width: 100%;
   margin-bottom: 20px;
 
   color: var(--white);
-
   font-size: 22px;
-
   font-weight: 700;
-
+  line-height: 1.3;
+  letter-spacing: -0.02em;
   text-decoration: none;
+  overflow-wrap: anywhere;
+
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  color: var(--gold);
 }
 
 .about p {
   margin: 0 0 12px;
 
-  color: #9da39d;
-
+  color: #b8bcb5;
   font-size: 14px;
-
-  line-height: 1.6;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
 }
+
+/* Навігація та списки послуг */
 
 .navigation,
 .services,
 .contact {
   display: flex;
-
   flex-direction: column;
-
+  align-items: flex-start;
   gap: 12px;
 }
 
@@ -68,20 +88,22 @@
   margin: 0 0 8px;
 
   color: var(--gold);
-
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .navigation a,
 .services a,
 .contact a {
-  color: #9da39d;
+  max-width: 100%;
+  color: #b8bcb5;
 
   font-size: 14px;
-
-  line-height: 1.5;
-
+  font-weight: 400;
+  line-height: 1.6;
   text-decoration: none;
+  overflow-wrap: anywhere;
 
   transition: color 0.2s ease;
 }
@@ -92,14 +114,24 @@
   color: var(--gold);
 }
 
+.navigation a:focus-visible,
+.services a:focus-visible,
+.contact a:focus-visible,
+.homeButton:focus-visible,
+.logo:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+/* Нижня частина футера */
+
 .bottom {
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
-  gap: 24px;
+  flex-wrap: wrap;
+  gap: 16px 24px;
 
   padding-top: 24px;
 }
@@ -107,54 +139,163 @@
 .bottom p {
   margin: 0;
 
-  color: #707670;
-
+  color: #9da39d;
   font-size: 13px;
+  line-height: 1.7;
 }
 
 .homeButton {
-  color: #9da39d;
+  display: inline-block;
+  color: #b8bcb5;
 
   font-size: 14px;
-
   font-weight: 600;
-
+  line-height: 1.5;
   text-decoration: none;
+
+  transition: color 0.2s ease;
 }
 
 .homeButton:hover {
   color: var(--gold);
 }
 
-@media (max-width: 1024px) {
-  .container {
-    padding: 0 20px;
-  }
-  .main {
-    grid-template-columns: 1fr 1fr;
+/* Планшети */
 
-    gap: 36px;
+@media (max-width: 1024px) {
+  .footer {
+    padding: 48px 24px 24px;
+  }
+
+  .main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px 40px;
+    padding-bottom: 28px;
   }
 
   .about {
-    max-width: none;
+    max-width: 360px;
   }
 }
 
+/* Мобільні пристрої */
+
 @media (max-width: 768px) {
   .footer {
-    padding: 56px 20px 20px;
+    padding: 44px 20px 20px;
   }
 
   .main {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 32px 24px;
+    padding-bottom: 28px;
+  }
 
-    gap: 36px;
+  .logo {
+    font-size: 21px;
+  }
+
+  .navigation,
+  .services,
+  .contact {
+    gap: 10px;
+  }
+
+  .navigation h3,
+  .services h3,
+  .contact h3 {
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+
+  .navigation a,
+  .services a,
+  .contact a {
+    font-size: 13px;
+  }
+
+  .bottom {
+    align-items: flex-start;
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .bottom p {
+    font-size: 12px;
+  }
+}
+
+/* Маленькі телефони */
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 40px 16px 20px;
+  }
+
+  .main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding-bottom: 24px;
+  }
+
+  .about {
+    max-width: 100%;
+  }
+
+  .logo {
+    margin-bottom: 14px;
+    font-size: 21px;
+  }
+
+  .about p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .navigation,
+  .services,
+  .contact {
+    gap: 10px;
+  }
+
+  .navigation h3,
+  .services h3,
+  .contact h3 {
+    margin-bottom: 4px;
+    font-size: 15px;
+  }
+
+  .navigation a,
+  .services a,
+  .contact a {
+    font-size: 14px;
+    line-height: 1.6;
   }
 
   .bottom {
     flex-direction: column;
-
     align-items: flex-start;
+    gap: 12px;
+    padding-top: 20px;
+  }
+
+  .bottom p {
+    font-size: 12px;
+  }
+
+  .homeButton {
+    font-size: 14px;
+  }
+}
+
+/* Налаштування доступності */
+
+@media (prefers-reduced-motion: reduce) {
+  .logo,
+  .navigation a,
+  .services a,
+  .contact a,
+  .homeButton {
+    transition: none;
   }
 }
