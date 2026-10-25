@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 
 import styles from './Calculator.module.css'
@@ -7,29 +8,37 @@ const Calculator = () => {
   const { translations } = useLanguage()
 
   const [propertyPrice, setPropertyPrice] =
-    useState<number>(5000000)
+    useState<string>('5000000')
 
   const [downPaymentPercent, setDownPaymentPercent] =
-    useState<number>(20)
+    useState<string>('20')
 
   const [years, setYears] = useState<string>('30')
 
   const interestRate = 5.5
 
+  const propertyPriceNumber =
+    Number(propertyPrice) || 0
+
+  const downPaymentPercentNumber =
+    Number(downPaymentPercent) || 0
+
+  const yearsNumber = Number(years) || 0
+
   const downPayment =
-    propertyPrice * (downPaymentPercent / 100)
+    propertyPriceNumber *
+    (downPaymentPercentNumber / 100)
 
   const loanAmount =
-    propertyPrice - downPayment
+    propertyPriceNumber - downPayment
 
   const monthlyRate =
     interestRate / 100 / 12
 
-  const numberOfPayments =
-    Number(years) * 12
+  const numberOfPayments = yearsNumber * 12
 
   const monthlyPayment =
-    Number(years) > 0
+    numberOfPayments > 0 && loanAmount > 0
       ? loanAmount *
         (monthlyRate *
           Math.pow(1 + monthlyRate, numberOfPayments)) /
@@ -44,13 +53,16 @@ const Calculator = () => {
     }).format(value)
   }
 
+  const removeLeadingZeros = (value: string) => {
+    return value.replace(/^0+(?=\d)/, '')
+  }
+
   return (
     <section
       id="calculator"
       className={styles.calculator}
     >
       <div className={styles.container}>
-
         <div className={styles.header}>
           <p className={styles.subtitle}>
             {translations.calculator.subtitle}
@@ -66,9 +78,7 @@ const Calculator = () => {
         </div>
 
         <div className={styles.calculatorBox}>
-
           <div className={styles.form}>
-
             <div className={styles.field}>
               <label htmlFor="propertyPrice">
                 {translations.calculator.propertyPrice}
@@ -76,15 +86,18 @@ const Calculator = () => {
 
               <input
                 id="propertyPrice"
-                type="number"
-                min="500000"
-                step="100000"
+                type="text"
+                inputMode="numeric"
                 value={propertyPrice}
-                onChange={(event) =>
+                onChange={(event) => {
+                  const value = event.target.value
+
+                  if (!/^\d*$/.test(value)) return
+
                   setPropertyPrice(
-                    Number(event.target.value),
+                    removeLeadingZeros(value),
                   )
-                }
+                }}
               />
 
               <span>{translations.calculator.currency}</span>
@@ -97,21 +110,31 @@ const Calculator = () => {
 
               <input
                 id="downPayment"
-                type="number"
-                min="20"
-                max="80"
+                type="text"
+                inputMode="numeric"
                 value={downPaymentPercent}
-                onChange={(event) =>
-                  setDownPaymentPercent(
-                    Math.max(
-                      20,
-                      Math.min(
-                        80,
-                        Number(event.target.value),
-                      ),
-                    ),
-                  )
-                }
+                onChange={(event) => {
+                  const value = event.target.value
+
+                  if (!/^\d*$/.test(value)) return
+
+                  const cleanValue =
+                    removeLeadingZeros(value)
+
+                  if (cleanValue === '') {
+                    setDownPaymentPercent('')
+                    return
+                  }
+
+                  if (Number(cleanValue) <= 80) {
+                    setDownPaymentPercent(cleanValue)
+                  }
+                }}
+                onBlur={() => {
+                  if (downPaymentPercent === '') {
+                    setDownPaymentPercent('0')
+                  }
+                }}
               />
 
               <span>%</span>
@@ -124,37 +147,36 @@ const Calculator = () => {
 
               <input
                 id="years"
-                type="number"
-                min="0"
-                max="30"
+                type="text"
+                inputMode="numeric"
                 value={years}
                 onChange={(event) => {
                   const value = event.target.value
 
-                  if (value === '') {
-                    setYears('0')
-                    return
-                  }
+                  if (!/^\d*$/.test(value)) return
 
                   const cleanValue =
-                    value.replace(/^0+(?=\d)/, '')
+                    removeLeadingZeros(value)
 
-                  const numberValue =
-                    Number(cleanValue)
-
-                  if (numberValue <= 30) {
-                    setYears(value)
+                  if (
+                    cleanValue === '' ||
+                    Number(cleanValue) <= 30
+                  ) {
+                    setYears(cleanValue)
+                  }
+                }}
+                onBlur={() => {
+                  if (years === '') {
+                    setYears('0')
                   }
                 }}
               />
 
               <span>{translations.calculator.years}</span>
             </div>
-
           </div>
 
           <div className={styles.result}>
-
             <p className={styles.resultLabel}>
               {translations.calculator.monthlyPayment}
             </p>
@@ -164,14 +186,13 @@ const Calculator = () => {
             </div>
 
             <div className={styles.details}>
-
               <div>
                 <span>
                   {translations.calculator.propertyPrice}
                 </span>
 
                 <strong>
-                  {formatCurrency(propertyPrice)}
+                  {formatCurrency(propertyPriceNumber)}
                 </strong>
               </div>
 
@@ -200,27 +221,18 @@ const Calculator = () => {
                   {translations.calculator.interestRate}
                 </span>
 
-                <strong>
-                  {interestRate} %
-                </strong>
+                <strong>{interestRate} %</strong>
               </div>
-
             </div>
 
             <p className={styles.note}>
               {translations.calculator.note}
             </p>
-
           </div>
-
         </div>
-
       </div>
     </section>
   )
 }
 
 export default Calculator
-
-
-

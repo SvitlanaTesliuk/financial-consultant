@@ -45,8 +45,6 @@
   line-height: 1.7;
 }
 
-/* Основна картка калькулятора */
-
 .calculatorBox {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -64,8 +62,6 @@
   border-radius: 20px;
   box-shadow: var(--shadow);
 }
-
-/* Форма */
 
 .form {
   display: flex;
@@ -131,8 +127,6 @@
   pointer-events: none;
 }
 
-/* Блок результату */
-
 .result {
   display: flex;
   flex-direction: column;
@@ -162,8 +156,6 @@
   letter-spacing: -0.02em;
   overflow-wrap: anywhere;
 }
-
-/* Деталі розрахунку */
 
 .details {
   display: flex;
@@ -205,8 +197,6 @@
   line-height: 1.7;
 }
 
-/* Планшети */
-
 @media (max-width: 900px) {
   .calculatorBox {
     gap: 28px;
@@ -221,8 +211,6 @@
     font-size: clamp(28px, 4vw, 38px);
   }
 }
-
-/* Мобільні пристрої */
 
 @media (max-width: 768px) {
   .calculator {
@@ -262,8 +250,6 @@
     font-size: clamp(30px, 7vw, 40px);
   }
 }
-
-/* Маленькі екрани */
 
 @media (max-width: 480px) {
   .calculator {
