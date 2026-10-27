@@ -10,11 +10,7 @@ const PORT = process.env.PORT || 5000
 app.disable('x-powered-by')
 
 // Дозволені адреси frontend
-const allowedOrigins = new Set ([
-  'https://www.tesliukfinance.com',
-  'https://tesliukfinance.com',
-  'http://localhost:5173',
-])
+allowedOrigins.has(origin)
 
 const corsOptions = {
   origin: [
