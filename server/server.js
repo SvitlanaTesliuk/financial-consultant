@@ -10,46 +10,38 @@ const PORT = process.env.PORT || 5000
 app.disable('x-powered-by')
 
 // Дозволені адреси frontend
-allowedOrigins.has(origin)
+const allowedOrigins = new Set([
+  'https://www.tesliukfinance.com',
+  'https://tesliukfinance.com',
+  'http://localhost:5173',
+])
 
+// Дозволяємо основні домени та preview-домени Vercel
 const corsOptions = {
-  origin: [
-    ...allowedOrigins,
-    /^https:\/\/financial-consultant-[a-z0-9-]+\.vercel\.app$/i,
-  ],
+  origin: (origin, callback) => {
+    // Запити без Origin, наприклад серверні запити
+    if (!origin || allowedOrigins.has(origin)) {
+      return callback(null, true)
+    }
+
+    // Дозволяємо preview-домени Vercel цього проєкту
+    if (
+      /^https:\/\/financial-consultant-[a-z0-9-]+\.vercel\.app$/i.test(
+        origin,
+      )
+    ) {
+      return callback(null, true)
+    }
+
+    console.warn(`CORS: origin не дозволено: ${origin}`)
+    return callback(null, false)
+  },
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type'],
   optionsSuccessStatus: 204,
 }
 
 app.use(cors(corsOptions))
-
-// Налаштування CORS
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Запити без Origin, наприклад деякі серверні запити
-      if (!origin || allowedOrigins.includes(origin)) {
-        return callback(null, true)
-      }
-
-      // Дозволяємо preview-домени Vercel
-      if (
-        /^https:\/\/financial-consultant-[a-z0-9-]+\.vercel\.app$/i.test(
-          origin,
-        )
-      ) {
-        return callback(null, true)
-      }
-
-      console.warn(`CORS: ${origin}`)
-      return callback(new Error('Not allowed by CORS'))
-    },
-    methods: ['GET', 'POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type'],
-    optionsSuccessStatus: 204,
-  }),
-)
 
 app.use(express.json())
 
