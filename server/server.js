@@ -16,6 +16,18 @@ const allowedOrigins = new Set ([
   'http://localhost:5173',
 ])
 
+const corsOptions = {
+  origin: [
+    ...allowedOrigins,
+    /^https:\/\/financial-consultant-[a-z0-9-]+\.vercel\.app$/i,
+  ],
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+  optionsSuccessStatus: 204,
+}
+
+app.use(cors(corsOptions))
+
 // Налаштування CORS
 app.use(
   cors({
@@ -34,7 +46,7 @@ app.use(
         return callback(null, true)
       }
 
-      console.warn(`CORS: запит із недозволеного домену: ${origin}`)
+      console.warn(`CORS: ${origin}`)
       return callback(new Error('Not allowed by CORS'))
     },
     methods: ['GET', 'POST', 'OPTIONS'],
