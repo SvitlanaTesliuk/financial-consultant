@@ -235,10 +235,10 @@ contact: {
 
 footer: {
   description:
-    'Фінансовий консультант для вас та вашої родини.',
+    'Identifikační údaje: IČO: 23969831. Sídlo: Brigádníků 1407/12, 360 01 Karlovy Vary. Zapsána v živnostenském rejstříku.',
 
   servicesDescription:
-    'Підбір та оформлення страхування, кредитів та інвестицій. Працюю під ČNB.',
+    'Підбір та оформлення страхування, кредитів та інвестицій.',
 
   navigationTitle: 'Навігація',
   servicesTitle: 'Послуги',
